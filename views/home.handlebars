@@ -1,6 +1,35 @@
-<div class="col-md-4 col-md-offset-4">{{>flash}}</div><br>
-<div class="container">
-  <header class="jumbotron hero-spacer">
-    <h1>Home Page</h1>
-  </header>
+<link rel="stylesheet" type="text/css" href="/stylesheets/grid.css">
+<script src="/javascripts/grid.js"></script>
+<script>
+  window.onload = function() {
+     var $grid = $('.grid').packery({
+    itemSelector: '.grid-item',
+    // columnWidth helps with drop positioning
+    columnWidth: 100
+    });
+  initGrid();
+}
+</script>
+
+<h1>Badgerloop Dashboard PoC</h1>
+
+<div class="grid">
+  <div class="grid-item grid-item--width2">Chart 1</div>
+  <div id="box2" class="grid-item">Text<br><button onclick="changeSize('box2')" class="btn btn-primary btn-sm">Change Size</button></div>
+  <div class="grid-item">Number</div>
+  <div class="grid-item">Stat</div>
+  <div class="grid-item grid-item--width2 grid-item--height2">Data</div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
 </div>
