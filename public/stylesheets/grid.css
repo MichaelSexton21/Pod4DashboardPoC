@@ -32,21 +32,23 @@ body { font-family: sans-serif; }
 
 .grid-item--width2 { width: 200px; font-size: 200% }
 .grid-item--height2 { height: 200px; font-size: 200%}
+.grid-item--large {width: 300px;height: 300px; font-size: 300%}
 
-.grid-item:hover {
-  border-color: hsla(0, 0%, 100%, 0.5);
-  cursor: move;
-}
+.grid-item--chart{background: white;}
+.grid-item:hover {cursor: move;}
 
 .grid-item.is-dragging,
-.grid-item.is-positioning-post-drag {
-  background: #C90;
-  z-index: 2;
-}
+.grid-item.is-positioning-post-drag {z-index: 2;}
 
 .packery-drop-placeholder {
   outline: 3px dashed hsla(0, 0%, 0%, 0.5);
   outline-offset: -6px;
   -webkit-transition: -webkit-transform 0.2s;
           transition: transform 0.2s;
+}
+
+#addButton{
+  background: gray;
+  align-content: center;
+  font-size: 56px;
 }
