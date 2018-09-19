@@ -8,11 +8,9 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
 var dotenv = require('dotenv');
-var MongoStore = require('connect-mongo/es5')(session);
+
 var flash = require('express-flash');
 var path = require('path');
-var mongoose = require('mongoose');
-var passport = require('passport');
 var expressValidator = require('express-validator');
 var multer = require('multer');
 var upload = multer({ dest: path.join(__dirname, 'uploads') });
@@ -49,15 +47,6 @@ var adminController = require('./controllers/admin');
 var passportConfig = require('./config/passport');
 
 /**
- * Connect to MongoDB.
- */
-mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI);
-mongoose.connection.on('error', function() {
-  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
-  process.exit(1);
-});
-
-/**
  * Express configuration.
  */
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -68,15 +57,7 @@ app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
-app.use(session({
-  resave: true,
-  saveUninitialized: true,
-  secret: process.env.SESSION_SECRET,
-  store: new MongoStore({
-    url: process.env.MONGODB || process.env.MONGOLAB_URI,
-    autoReconnect: true
-  })
-}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
