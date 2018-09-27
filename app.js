@@ -44,17 +44,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-// app.use(function(req, res, next) {
-//   res.locals.user = req.user;
-//   next();
-// });
-// app.use(function(req, res, next) {
-//   // After successful login, redirect back to /api, /contact or /
-//   if (/(api)|(contact)|(^\/$)/i.test(req.path)) {
-//     req.session.returnTo = '/';
-//   }
-//   next();
-// });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 var needsUsername = function(username) {
@@ -72,6 +61,10 @@ var needsUsername = function(username) {
  */
 app.get('/', function(req,res){
   res.render('home');
+});
+
+app.get('/proto', function(req,res){
+  res.render('proto');
 })
 
 
